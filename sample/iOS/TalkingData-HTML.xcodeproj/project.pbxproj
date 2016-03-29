@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F157238196BDE7400B4996E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F157237196BDE7400B4996E /* Foundation.framework */; };
+		3F15723A196BDE7400B4996E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F157239196BDE7400B4996E /* CoreGraphics.framework */; };
+		3F15723C196BDE7400B4996E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F15723B196BDE7400B4996E /* UIKit.framework */; };
+		3F157242196BDE7400B4996E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F157240196BDE7400B4996E /* InfoPlist.strings */; };
+		3F157244196BDE7400B4996E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F157243196BDE7400B4996E /* main.m */; };
+		3F157248196BDE7400B4996E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F157247196BDE7400B4996E /* AppDelegate.m */; };
+		3F15724A196BDE7400B4996E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F157249196BDE7400B4996E /* Images.xcassets */; };
+		3F157268196BDE8500B4996E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F157267196BDE8500B4996E /* ViewController.m */; };
+		3F157275196BE0BD00B4996E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F157274196BE0BD00B4996E /* AdSupport.framework */; };
+		3F157277196BE0D400B4996E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F157276196BE0D400B4996E /* SystemConfiguration.framework */; };
+		3F157279196BE0DB00B4996E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F157278196BE0DB00B4996E /* CoreTelephony.framework */; };
+		3F15727B196BE0F000B4996E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F15727A196BE0F000B4996E /* Security.framework */; };
+		3F15727D196BE0F500B4996E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F15727C196BE0F500B4996E /* libz.dylib */; };
+		3F157290196BF47A00B4996E /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3F15728F196BF47A00B4996E /* index.html */; };
+		3F157291196BF52300B4996E /* TalkingData.js in Resources */ = {isa = PBXBuildFile; fileRef = 3F15728D196BF46400B4996E /* TalkingData.js */; };
+		3F384D701C33AAEF00D61F99 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F384D6F1C33AAEF00D61F99 /* CoreMotion.framework */; };
+		3F6C10E51AE5258B007AB6D9 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C10E11AE5258B007AB6D9 /* libTalkingData.a */; };
+		3F6C10E61AE5258B007AB6D9 /* TalkingDataHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C10E41AE5258B007AB6D9 /* TalkingDataHTML.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F157234196BDE7400B4996E /* TalkingData-HTML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TalkingData-HTML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F157237196BDE7400B4996E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F157239196BDE7400B4996E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3F15723B196BDE7400B4996E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3F15723F196BDE7400B4996E /* TalkingData-HTML-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TalkingData-HTML-Info.plist"; sourceTree = "<group>"; };
+		3F157241196BDE7400B4996E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F157243196BDE7400B4996E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F157245196BDE7400B4996E /* TalkingData-HTML-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TalkingData-HTML-Prefix.pch"; sourceTree = "<group>"; };
+		3F157246196BDE7400B4996E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3F157247196BDE7400B4996E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3F157249196BDE7400B4996E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3F157266196BDE8500B4996E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3F157267196BDE8500B4996E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3F157274196BE0BD00B4996E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		3F157276196BE0D400B4996E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3F157278196BE0DB00B4996E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3F15727A196BE0F000B4996E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3F15727C196BE0F500B4996E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3F15728D196BF46400B4996E /* TalkingData.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = TalkingData.js; sourceTree = "<group>"; };
+		3F15728F196BF47A00B4996E /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		3F384D6F1C33AAEF00D61F99 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3F6C10E11AE5258B007AB6D9 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTalkingData.a; path = ../../../iOS/libTalkingData.a; sourceTree = "<group>"; };
+		3F6C10E21AE5258B007AB6D9 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingData.h; path = ../../../iOS/TalkingData.h; sourceTree = "<group>"; };
+		3F6C10E31AE5258B007AB6D9 /* TalkingDataHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingDataHTML.h; path = ../../../iOS/TalkingDataHTML.h; sourceTree = "<group>"; };
+		3F6C10E41AE5258B007AB6D9 /* TalkingDataHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingDataHTML.m; path = ../../../iOS/TalkingDataHTML.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F157231196BDE7400B4996E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F384D701C33AAEF00D61F99 /* CoreMotion.framework in Frameworks */,
+				3F15727D196BE0F500B4996E /* libz.dylib in Frameworks */,
+				3F15727B196BE0F000B4996E /* Security.framework in Frameworks */,
+				3F157279196BE0DB00B4996E /* CoreTelephony.framework in Frameworks */,
+				3F157277196BE0D400B4996E /* SystemConfiguration.framework in Frameworks */,
+				3F157275196BE0BD00B4996E /* AdSupport.framework in Frameworks */,
+				3F15723A196BDE7400B4996E /* CoreGraphics.framework in Frameworks */,
+				3F15723C196BDE7400B4996E /* UIKit.framework in Frameworks */,
+				3F6C10E51AE5258B007AB6D9 /* libTalkingData.a in Frameworks */,
+				3F157238196BDE7400B4996E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F15722B196BDE7400B4996E = {
+			isa = PBXGroup;
+			children = (
+				3F15723D196BDE7400B4996E /* TalkingData-HTML */,
+				3F157236196BDE7400B4996E /* Frameworks */,
+				3F157235196BDE7400B4996E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F157235196BDE7400B4996E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F157234196BDE7400B4996E /* TalkingData-HTML.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F157236196BDE7400B4996E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F384D6F1C33AAEF00D61F99 /* CoreMotion.framework */,
+				3F15727C196BE0F500B4996E /* libz.dylib */,
+				3F15727A196BE0F000B4996E /* Security.framework */,
+				3F157278196BE0DB00B4996E /* CoreTelephony.framework */,
+				3F157276196BE0D400B4996E /* SystemConfiguration.framework */,
+				3F157274196BE0BD00B4996E /* AdSupport.framework */,
+				3F157237196BDE7400B4996E /* Foundation.framework */,
+				3F157239196BDE7400B4996E /* CoreGraphics.framework */,
+				3F15723B196BDE7400B4996E /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F15723D196BDE7400B4996E /* TalkingData-HTML */ = {
+			isa = PBXGroup;
+			children = (
+				3F6C10E11AE5258B007AB6D9 /* libTalkingData.a */,
+				3F6C10E21AE5258B007AB6D9 /* TalkingData.h */,
+				3F6C10E31AE5258B007AB6D9 /* TalkingDataHTML.h */,
+				3F6C10E41AE5258B007AB6D9 /* TalkingDataHTML.m */,
+				3F157246196BDE7400B4996E /* AppDelegate.h */,
+				3F157247196BDE7400B4996E /* AppDelegate.m */,
+				3F157266196BDE8500B4996E /* ViewController.h */,
+				3F157267196BDE8500B4996E /* ViewController.m */,
+				3F157249196BDE7400B4996E /* Images.xcassets */,
+				3F15723E196BDE7400B4996E /* Supporting Files */,
+			);
+			path = "TalkingData-HTML";
+			sourceTree = "<group>";
+		};
+		3F15723E196BDE7400B4996E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F15728F196BF47A00B4996E /* index.html */,
+				3F15728D196BF46400B4996E /* TalkingData.js */,
+				3F15723F196BDE7400B4996E /* TalkingData-HTML-Info.plist */,
+				3F157240196BDE7400B4996E /* InfoPlist.strings */,
+				3F157243196BDE7400B4996E /* main.m */,
+				3F157245196BDE7400B4996E /* TalkingData-HTML-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F157233196BDE7400B4996E /* TalkingData-HTML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F157260196BDE7400B4996E /* Build configuration list for PBXNativeTarget "TalkingData-HTML" */;
+			buildPhases = (
+				3F157230196BDE7400B4996E /* Sources */,
+				3F157231196BDE7400B4996E /* Frameworks */,
+				3F157232196BDE7400B4996E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TalkingData-HTML";
+			productName = "TalkingData-HTML";
+			productReference = 3F157234196BDE7400B4996E /* TalkingData-HTML.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F15722C196BDE7400B4996E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = TendCloud;
+			};
+			buildConfigurationList = 3F15722F196BDE7400B4996E /* Build configuration list for PBXProject "TalkingData-HTML" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F15722B196BDE7400B4996E;
+			productRefGroup = 3F157235196BDE7400B4996E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F157233196BDE7400B4996E /* TalkingData-HTML */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F157232196BDE7400B4996E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F157290196BF47A00B4996E /* index.html in Resources */,
+				3F157291196BF52300B4996E /* TalkingData.js in Resources */,
+				3F157242196BDE7400B4996E /* InfoPlist.strings in Resources */,
+				3F15724A196BDE7400B4996E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F157230196BDE7400B4996E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F157268196BDE8500B4996E /* ViewController.m in Sources */,
+				3F6C10E61AE5258B007AB6D9 /* TalkingDataHTML.m in Sources */,
+				3F157248196BDE7400B4996E /* AppDelegate.m in Sources */,
+				3F157244196BDE7400B4996E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F157240196BDE7400B4996E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F157241196BDE7400B4996E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F15725E196BDE7400B4996E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F15725F196BDE7400B4996E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F157261196BDE7400B4996E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TalkingData-HTML/TalkingData-HTML-Prefix.pch";
+				INFOPLIST_FILE = "TalkingData-HTML/TalkingData-HTML-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TalkingData-HTML",
+					"$(PROJECT_DIR)/../../iOS",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3F157262196BDE7400B4996E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TalkingData-HTML/TalkingData-HTML-Prefix.pch";
+				INFOPLIST_FILE = "TalkingData-HTML/TalkingData-HTML-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TalkingData-HTML",
+					"$(PROJECT_DIR)/../../iOS",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F15722F196BDE7400B4996E /* Build configuration list for PBXProject "TalkingData-HTML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F15725E196BDE7400B4996E /* Debug */,
+				3F15725F196BDE7400B4996E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F157260196BDE7400B4996E /* Build configuration list for PBXNativeTarget "TalkingData-HTML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F157261196BDE7400B4996E /* Debug */,
+				3F157262196BDE7400B4996E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F15722C196BDE7400B4996E /* Project object */;
+}

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>TalkingDataDemo</title>
+        <script type="text/javascript" src="TalkingData.js"></script>
+        <script type="text/javascript">
+            function deviceId(obj)
+            {
+                document.getElementById("DeviceId").innerHTML=obj;
+            }
+            function eventWithParameters()
+            {
+                var eventData = new Object();
+                eventData.name = "abcd";
+                eventData.age = 28;
+                TalkingData.onEventWithParameters('Event03', 'Label03', eventData);
+            }
+        </script>
+    </head>
+    <body>
+        <br/>
+        <br/>
+        <input type="button" value="getDeviceId" onclick="TalkingData.getDeviceId(deviceId)"/><br/>
+        <input type="button" value="onEvent" onclick="TalkingData.onEvent('Event01')"/><br/>
+        <input type="button" value="onEventWithLabel" onclick="TalkingData.onEventWithLabel('Event02', 'Label02')"/><br/>
+        <input type="button" value="onEventWithParameters" onclick="eventWithParameters()"/><br/>
+        <input type="button" value="onPageBegin" onclick="TalkingData.onPageBegin('Home')"/><br/>
+        <input type="button" value="onPageEnd" onclick="TalkingData.onPageEnd('Home')"/><br/>
+        <input type="button" value="setLocation" onclick="TalkingData.setLocation(39.2, 115.5)"/><br/>
+        <p id="DeviceId"/>
+        <br/>
+    </body>
+</html>
