@@ -41,10 +41,15 @@
 		如果 js 触发的是 TalkingData 的事件，`execute` 方法会返回 `YES`，否则返回 `NO`。
 
 	- 工程配置  
-	TalkingData App Analytics 需要使用 `Security. framework` 来辅助存储设备标识，`CoreTelephony.framework` 框架获取运营商标识，使用 `AdSupport.framework` 获取 advertisingIdentifier，使用 `libz.dylib` 进行数据压缩。  
-	XCode 4.5 及以上版本中，在您的工程里，选择 `Target` --> `Build Phases` --> `Link Binary With Libraries`, 点击 `+` 号，选择 `Security.framework`、`CoreTelephony.framework`、`AdSupport.framework` 和 `libz.dylib`  
-	如要支持 iOS 6.0 以下版本系统，请将 `AdSupport.framework` 依赖条件改成 `Optional`。
-	
+	在工程中添加 TalkingData App Analytics SDK 使用到的库  
+	`AdSupport.framework` 获取 advertisingIdentifier  
+	`CFNetwork.framework` 使用网络连接  
+	`CoreTelephony.framework` 框架获取运营商标识  
+	`CoreMotion.framework` 支持摇一摇功能  
+	`Security.framework` 来辅助存储设备标识  
+	`SystemConfiguraton.framework` 检测网络状况  
+	`libz.tbd`(xcode7以下：`libz.dylib`） 进行数据压缩
+
 
 3. Android 平台向工程中导入追踪SDK
 	- 将 `TalkingDataHTML.java` 文件添加到项目中，修改其包名为项目包名。
@@ -91,25 +96,14 @@
 			}
 		__注意__：上面的 `com.tendcloud.hybriddemo` 需要替换为项目中实际存放 `TalkingDataHTML` 类文件的包名。
 
-4. 页面集成
-	- Javascript 文件集成  
-	在 `index.html` 中引入 `TalkingData.js` 文件。下面以 iOS 平台为例说明接口调用方法。Android 平台 HTML 部分的集成和 iOS 相同，Java 端集成方式请参考： [TalkingData App Analytics SDK on Android 在线集成文档](https://www.talkingdata.com/app/document_web/index.jsp?statistics) 
-	- 添加必须的调用方法（重要）
-		- 跟踪游戏/应用的启动和关闭：用于准确跟踪玩家的游戏/应用的启动次数、使用时长等信息  
-		在游戏/应用启动后，调用 `TalkingData.sessionStarted`，该接口完成统计模块的初始化和统计 Session 的创建，所以越早调用越好。也可以在 `Objective-C` 层的 `AppDelegate` 中对 SDK 初始化。
-		- 添加渠道信息：可以选择性的在 `channelId` 中填入推广渠道的名称，数据报表中则可单独查询到他们的数据。每台设备仅记录首次安装激活的渠道，更替渠道包安装不会重复计量。不同的渠道ID包请重新编译打包。
+4. 初始化集成（重要）
+	- 跟踪游戏/应用的启动和关闭：用于准确跟踪玩家的游戏/应用的启动次数、使用时长等信息  
+	在游戏/应用启动后，调用 `TalkingData.sessionStarted`，该接口完成统计模块的初始化和统计 Session 的创建，所以越早调用越好。也可以在 `Objective-C` 层的 `AppDelegate` 中对 SDK 初始化。
+	- 添加渠道信息：可以选择性的在 `channelId` 中填入推广渠道的名称，数据报表中则可单独查询到他们的数据。每台设备仅记录首次安装激活的渠道，更替渠道包安装不会重复计量。不同的渠道ID包请重新编译打包。  
+	- appKey: string 类型，填写创建游戏/应用时获得的 AppID，用于唯一识别您的游戏/应用。
+	- channelId： string 类型，用来标注游戏/应用推广渠道，区分玩家的来源来查看统计。格式：32 个字符内，支持中文、英文、数字、空格、英文点和下划线，请勿使用其他符号。
 
-### 接口说明：（Javascript 文件中的 TalkingData 对象）
-
-`sessionStarted(appKey, channelId);`  
-
-- appKey: string 类型，填写创建游戏/应用时获得的 AppID，用于唯一识别您的游戏/应用。
-- channelId： string 类型，用来标注游戏/应用推广渠道，区分玩家的来源来查看统计。格式：32 个字符内，支持中文、英文、数字、空格、英文点和下划线，请勿使用其他符号。
-- 示例代码：
-	- 在 js 里调用
-
-			TalkingData.sessionStarted ("A1B2C3E4D5F7C0", "BAIDU");
-	- 或在 Objective-C 里调用
+	iOS示例代码
 
 			#import "TalkingData.h"
 			- (BOOL)application:(UIApplication *)application
@@ -120,29 +114,21 @@
 			......
 			}
 
-### 更多高级功能
+### 接口说明：（Javascript 文件中的 TalkingData 对象）
 
-1. 区分渠道查阅数据  
-	给应用的安装包打入特殊的渠道标记，用户安装使用渠道包后，您可以在报表中区分来源单独查询出数据。在您为应用商店、下载站等分发渠道提供应用安装包时可以加入渠道标记，在进行特别的活动时亦可加入渠道标记来单独分析效果。  
-	请在 `TalkingData.sessionStarted` 方法里，用您定义的渠道名替换参数中的 `Your_Channel_ID`。
+在 `index.html` 中引入 `TalkingData.js` 文件。下面以 iOS 平台为例说明接口调用方法。Android 平台 HTML 部分的集成和 iOS 相同，Java 端集成方式请参考： [TalkingData App Analytics SDK on Android 在线集成文档](https://www.talkingdata.com/app/document_web/index.jsp?statistics) 
 
-		TalkingData.sessionStarted("Your_APP_ID","Your_Channel_ID");
-
-	- 渠道名可自行定义，格式：32 个字符内，支持中文、英文、数字、空格、英文点和下划线，请勿使用其他符号。
-	- 用户的渠道归属：每台设备仅记录给首次安装激活的渠道，同一用户在更替渠道包使用后不会重复计算新增，使用数据归入首次激活渠道。
-	- 如果未添加渠道标记，或渠道标记是示例代码中的默认值，用户将会归入为 `未知渠道`。
-
-2. 页面统计  
+1. 页面统计  
 	统计页面的点击次数和停留时间，需要在页面打开和关闭的时候添加对应的API 调用，如下所示：
 
 		//在进入页面时调用
-		TalkingData.trackPageBegin("page_name");
+		TalkingData.onPageBegin("page_name");
 		//在离开页面时调用
-		TalkingData.trackPageEnd("page_name");
+		TalkingData.onPageEnd("page_name");
 
 	注：page_name 是自定义的页面名称，注意不要加空格或其他的转义字符。
 
-3. 使用 DEVICE ID  
+2. 使用 DEVICE ID  
 	如要使用 TalkingData 提供的 `DeviceId`，请在调用 `getDeviceId` 接口时传入回调函数。在获取到 `DeviceId` 时会调用该函数，并将 `DeviceId` 以参数的形式传给该函数。
 
 		function callBack (deviceId) {
@@ -150,12 +136,12 @@
 		}
 		TalkingData.getDeviceId(callBack);
 
-4. 位置信息统计  
+3. 位置信息统计  
 	对于iOS 平台，TalkingData 默认不统计用户的位置信息，只提供了记录接口，请根据苹果公司的审核原则合理使用用户的位置信息，如有需要，可以将已获取的位置信息提交到TalkingData 统计服务器，服务器只保存最近一次提交的位置信息。如下所示：
 
 		TalkingData.setLocation(纬度, 经度);
 
-5. 使用自定义事件  
+4. 使用自定义事件  
 	自定义事件用于统计任何您期望去跟踪的数据，如：点击某功能按钮、填写某个输入框、触发了某个广告等；同时，自定义事件还支持添加一些描述性的属性参数，使用多对Key-Value 的方式来进行发送（非必须使用），用来对事件发生时的状况做详尽分析。
 	- Event ID 无需提前在数据平台中定义，可自行定义名称，直接加入到应用中需要跟踪的位置即可生效。
 	- 格式：32 个字符以内的中文、英文、数字、下划线，注意eventId 中不要加空格或其他的转义字符。
@@ -163,17 +149,18 @@
 
 	如果您要跟踪更多的事件，我们提供了Label 参数的用法，可以给多个要跟踪的同类型或类似的事件使用相同的 Event ID，通过给他们分配不同 Label 来达到区分跟踪多个事件的目的。这可理解为 Event ID 成为了多个事件的目录，EventID+Label 形成了一个具体事件。请对事件做好分类，这也对您管理和查阅事件数据有利。  
 	调用方法:
+
 	- 在应用程序要跟踪的事件处加入下面格式的代码，也就成功的添加了一个简单事件到您的应用程序中了：
 
-			TalkingData.trackEvent("Event_ID");
+			TalkingData.onEvent("Event_ID");
 
 	- 跟踪多个同类型事件，无需定义多个 Event ID，可以使用 Event ID 做为目录名，而使用Label 标签来区分这些事件，可按照下面格式添加代码：
 
-			TalkingData.trackEventWithLabel("Event_ID", "Event_Label");
+			TalkingData.onEventWithLabel("Event_ID", "Event_Label");
 
 	- 为事件添加详尽的描述信息，可以更有效的对事件触发的条件和场景做分析，可按照下面格式添加代码：
 
-			TalkingData.trackEventWithParameters("Event_ID","Event_Label",EventParameters);
+			TalkingData.onEventWithParameters("Event_ID","Event_Label",EventParameters);
 
 		注: 此 `EventParameters` 的 Value 仅支持字符串（string）和数字（number）类型，每一次事件数据支持 `10` 对不同参数传入。在 value 使用 string 格式时，报表中将给出事件发生时每种 value 出现的频次；value 为 number 时，报表将帮助计算value 值的总计值和平均数。
 	- 示例1：  
@@ -188,7 +175,7 @@
 			coin:"10000～20000" //携带金币数量
 			}
 
-			TalkingData.trackEventWithParameters("dead", "", dic);
+			TalkingData.onEventWithParameters("dead", "", dic);
 
 		注：在某key 的value 取值较离散情况下，不要直接填充具体数值，而应划分区间后传入，否则value 不同取值很可能超过平台最大数目限制，而影响最终展示数据的效果，比如：示例中金币数可能很离散，请先划分合适的区间。
 	- 示例2：  
@@ -197,5 +184,5 @@
 			var dic = {
 			step:"1" // 在注册环节的每一步完成时，以步骤名作为value 传送数据
 			}
-			TalkingData.trackEventWithParameters("reg", "", dic);
+			TalkingData.onEventWithParameters("reg", "", dic);
 
