@@ -128,6 +128,46 @@
 
 	注：page_name 是自定义的页面名称，注意不要加空格或其他的转义字符。
 
+	新增页面统计接口：
+
+		//相比于上面的接口，只需要在进入页面时调用此接口，即可统计页面
+		TalkingData.onPage("page_name");
+		//如果需要SDK自动添加页面访问事件，即SDK自动在当前页面调用onEvent(ctx,"page_name"),调用onPage接口添加参数为true即可
+		TalkingData.onPage("page_name",true);
+
+	
+	注意：
+
+	Android端:
+	
+	- 当应用被强制杀进程的时候（如：应用将返回键定义为点击两次就杀进程），这时会使页面统计准确度降低，如果您想避免这个问题，只需要在杀进程动作之前调用下面的接口：
+		
+			//pageName为空则会补充页面访问结束的统计，只可在杀进程之前调用
+			TalkingDataHTML.onPage(context,"");
+		
+		但是，这里需要注意同步的问题。如果处理不当，会导致onPage(context,"")没有执行完毕，进程就被杀死。
+		
+		所以建议您如果想保证统计页面的准确度，最好不要使用类似点返回键杀进程这种退出方式。
+
+	- TalkingDataHTML.java中注释掉了两个方法：
+			
+			//在使用WebView的Activity的onResume中调用
+			onPageStart(Context ctx, String activityName);
+			//在使用WebView的Activity的onPause中调用
+			onPageEnd(Context ctx, String activityName);
+	
+		如果您的js页面在用户按Home键或返回键退到手机桌面的时候有监听js页面的退出(退出时需调用TalkingData.onPageEnd方法)，并且在用户返回应用的时候js页面会刷新并触发onPage接口的调用，则不需要上面的两个接口； 否则，为了使页面统计更准确，建议您在使用了WebView的Activity中的onResume和onPause中分别调用这两个接口，它们会帮助您做结束页面时候的统计。
+
+		特别注意：这种方式只适合Activity直接加载WebView的情况；如果是触发式加载WebView(比如点击一个按钮才去加载WebView)，则不建议使用此种方式。
+	
+	- Android bridge层也提供了页面访问统计接口：
+	
+			//在WebViewClient的 onPageFinished 中调用
+			TalkingDataHTML.onPage(Context ctx, String pageName);
+			//重载方法，autoCountPageName 为true时，SDK会自动帮助统计页面事件，和js接口作用相同
+			onPage(Context ctx, String startPageName ,boolean autoCountPageName);
+
+		特别注意：在 native层和 bridge层的 onPage 接口选择中， 根据您的需求，只可选择其中一种进行使用。
 2. 使用 DEVICE ID  
 	如要使用 TalkingData 提供的 `DeviceId`，请在调用 `getDeviceId` 接口时传入回调函数。在获取到 `DeviceId` 时会调用该函数，并将 `DeviceId` 以参数的形式传给该函数。
 

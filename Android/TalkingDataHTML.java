@@ -1,21 +1,24 @@
 package com.tendcloud.talkingdatahtml;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import android.app.Activity;
+import android.content.Context;
+import android.webkit.WebView;
+
+import com.tendcloud.tenddata.TCAgent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.webkit.WebView;
-
-import com.tendcloud.tenddata.TCAgent;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class TalkingDataHTML {
 	private static volatile TalkingDataHTML talkingDataHTML = null;
+	private static String lastStartedPage = null;
+	private static String lastStartedActivity = "";
 	
 	public static TalkingDataHTML GetInstance(){
 		if(talkingDataHTML == null){
@@ -54,41 +57,98 @@ public class TalkingDataHTML {
 	}
 	
 	@SuppressWarnings("unused")
-	private void trackEvent(final JSONArray args) throws JSONException {
-		String eventId = args.getString(0);
+	private void trackEvent(final JSONArray event) throws JSONException {
+		String eventId = event.getString(0);
 		TCAgent.onEvent(MainActivity.context, eventId);
 	}
-	
+
+
 	@SuppressWarnings("unused")
-	private void trackEventWithLabel(final JSONArray args) throws JSONException {
-		String eventId = args.getString(0);
-		String eventLabel = args.getString(1);
+	private void trackEventWithLabel(final JSONArray event) throws JSONException {
+		String eventId = event.getString(0);
+		String eventLabel = event.getString(1);
 		TCAgent.onEvent(MainActivity.context, eventId, eventLabel);
 	}
 	
 	@SuppressWarnings("unused")
-	private void trackEventWithParameters(final JSONArray args) throws JSONException {
-		String eventId = args.getString(0);
-		String eventLabel = args.getString(1);
-		String eventDataJson = args.getString(2);
+	private void trackEventWithParameters(final JSONArray event) throws JSONException {
+		String eventId = event.getString(0);
+		String eventLabel = event.getString(1);
+		String eventDataJson = event.getString(2);
 		Map<String, Object> eventData = this.toMap(eventDataJson);
 		TCAgent.onEvent(MainActivity.context, eventId, eventLabel, eventData);
 	}
 	
 	@SuppressWarnings("unused")
-	private void trackPageBegin(final JSONArray args) throws JSONException {
-		String pageName = args.getString(0);
+	private void trackPageBegin(final JSONArray pages) throws JSONException {
+		String pageName = pages.getString(0);
 		if(GetInstance().activity != null){
 			TCAgent.onPageStart(talkingDataHTML.activity, pageName);
 		}
 	}
-	
+
 	@SuppressWarnings("unused")
-	private void trackPageEnd(final JSONArray args) throws JSONException {
-		String pageName = args.getString(0);
+	private void trackPageEnd(final JSONArray pages) throws JSONException {
+		String pageName = pages.getString(0);
 		TCAgent.onPageEnd(talkingDataHTML.activity, pageName);
 	}
-	
+
+	@SuppressWarnings("unused")
+	private void trackPage(final JSONArray args) throws JSONException {
+		String pageName = args.getString(0);
+		String isAutoCountPage = args.getString(1);
+		if(lastStartedPage != null && !lastStartedPage.isEmpty()){
+			TCAgent.onPageEnd(talkingDataHTML.activity, lastStartedPage);
+		}
+		TCAgent.onPageStart(talkingDataHTML.activity, pageName);
+		if("1".equals(isAutoCountPage)){
+			TCAgent.onEvent(talkingDataHTML.activity, pageName);
+		}
+		lastStartedPage = pageName;
+	}
+
+	@SuppressWarnings("unused")
+	public static void onPage(Context ctx, String pageName){
+		onPage(ctx,pageName,false);
+	}
+	@SuppressWarnings("unused")
+	public static void onPage(Context ctx, String startPageName ,boolean autoCountPageName){
+		if(startPageName.isEmpty() || startPageName == null){
+			if(lastStartedPage != null && !lastStartedPage.isEmpty()){
+				TCAgent.onPageEnd(talkingDataHTML.activity, lastStartedPage);
+			}
+			if(lastStartedActivity != null && !lastStartedActivity.isEmpty()){
+				TCAgent.onPageEnd(talkingDataHTML.activity, lastStartedActivity);
+			}
+		}else {
+			if(lastStartedPage != null && !lastStartedPage.isEmpty()){
+				TCAgent.onPageEnd(talkingDataHTML.activity, lastStartedPage);
+			}
+			TCAgent.onPageStart(talkingDataHTML.activity, startPageName);
+			if(autoCountPageName){
+				TCAgent.onEvent(ctx, startPageName);
+			}
+			lastStartedPage = startPageName;
+		}
+	}
+
+//	@SuppressWarnings("unused")
+//	public static void onPageStart(Context ctx, String activityName){
+//		TCAgent.onPageStart(ctx, activityName);
+//		lastStartedActivity = activityName;
+//		if(lastStartedPage != null && !lastStartedPage.isEmpty()){
+//			TCAgent.onPageStart(talkingDataHTML.activity, lastStartedPage);
+//		}
+//	}
+//
+//	@SuppressWarnings("unused")
+//	public static void onPageEnd(Context ctx, String activityName){
+//		if(lastStartedPage != null && !lastStartedPage.isEmpty()){
+//			TCAgent.onPageEnd(talkingDataHTML.activity, lastStartedPage);
+//		}
+//		TCAgent.onPageEnd(talkingDataHTML.activity, activityName);
+//	}
+
 	@SuppressWarnings("unused")
 	private void setLocation(final JSONArray args) {
 		

@@ -58,6 +58,18 @@ var TalkingData = {
             exec("trackPageEnd", [pageName]);
         }
     },
+    onPage:function(pageName) {
+        if(isWebviewFlag){
+            exec("trackPage", [pageName])
+        }
+    },
+    onPage:function(pageName,isAuto){
+        if(isAuto){
+            exec("trackPage", [pageName,"1"])
+        }else{
+            exec("trackPage", [pageName,"0"])
+        }
+    },
     setLocation:function(latitude, longitude) {
         if (isWebviewFlag) {
             exec("setLocation", [latitude, longitude]);
