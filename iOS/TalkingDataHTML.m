@@ -9,6 +9,14 @@
 #import "TalkingDataHTML.h"
 #import "TalkingData.h"
 
+
+@interface TalkingDataHTML ()
+
+@property (nonatomic, strong) NSString *pageName;
+
+@end
+
+
 @implementation TalkingDataHTML
 
 static TalkingDataHTML *talkingDataHTML = nil;
@@ -117,6 +125,8 @@ static TalkingDataHTML *talkingDataHTML = nil;
         return;
     }
     [TalkingData trackPageBegin:pageName];
+    
+    self.pageName = pageName;
 }
 
 - (void)trackPageEnd:(NSArray *)arguments {
@@ -125,6 +135,20 @@ static TalkingDataHTML *talkingDataHTML = nil;
         return;
     }
     [TalkingData trackPageEnd:pageName];
+}
+
+- (void)trackPage:(NSArray *)arguments {
+    if (_pageName) {
+        [TalkingData trackPageEnd:_pageName];
+    }
+    
+    NSString *pageName = [arguments objectAtIndex:0];
+    if (pageName == nil || [pageName isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    [TalkingData trackPageBegin:pageName];
+    
+    self.pageName = pageName;
 }
 
 @end
