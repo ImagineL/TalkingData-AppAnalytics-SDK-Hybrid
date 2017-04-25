@@ -48,7 +48,8 @@
 	`CoreMotion.framework` 支持摇一摇功能  
 	`Security.framework` 来辅助存储设备标识  
 	`SystemConfiguraton.framework` 检测网络状况  
-	`libz.tbd`(xcode7以下：`libz.dylib`） 进行数据压缩
+	`libc++.tbd` 支持最新的c++11标准  
+	`libz.tbd` 进行数据压缩
 
 
 3. Android 平台向工程中导入追踪SDK
