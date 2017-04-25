@@ -116,7 +116,7 @@
 
 ### 接口说明：（Javascript 文件中的 TalkingData 对象）
 
-在 `index.html` 中引入 `TalkingData.js` 文件。下面以 iOS 平台为例说明接口调用方法。Android 平台 HTML 部分的集成和 iOS 相同，Java 端集成方式请参考： [TalkingData App Analytics SDK on Android 在线集成文档](https://www.talkingdata.com/app/document_web/index.jsp?statistics) 
+在 `index.html` 中引入 `TalkingData.js` 文件。下面以 iOS 平台为例说明接口调用方法。Android 平台 HTML 部分的集成和 iOS 相同，Java 端集成方式请参考： [TalkingData App Analytics SDK on Android 在线集成文档](http://doc.talkingdata.com/posts/21) 
 
 1. 页面统计  
 	统计页面的点击次数和停留时间，需要在页面打开和关闭的时候添加对应的API 调用，如下所示：
