@@ -31,8 +31,9 @@
 			- (BOOL)webView:(UIWebView *)webView
 			shouldStartLoadWithRequest:(NSURLRequest *)request
 			navigationType:(UIWebViewNavigationType)navigationType {
-			NSURL * url = [request URL];
-			if ([TalkingDataHTML execute:url webView:webView]) {
+			NSString *url = [[request URL] absoluteString];
+			NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			if ([TalkingDataHTML execute:parameters webView:webView]) {
 				return NO;
 			}
 				return YES;
