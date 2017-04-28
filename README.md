@@ -31,11 +31,11 @@
 			- (BOOL)webView:(UIWebView *)webView
 			shouldStartLoadWithRequest:(NSURLRequest *)request
 			navigationType:(UIWebViewNavigationType)navigationType {
-			NSString *url = [[request URL] absoluteString];
-			NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-			if ([TalkingDataHTML execute:parameters webView:webView]) {
-				return NO;
-			}
+				NSString *url = [[request URL] absoluteString];
+				NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				if ([TalkingDataHTML execute:parameters webView:webView]) {
+					return NO;
+				}
 				return YES;
 			}
 
@@ -107,14 +107,12 @@
 
 	iOS示例代码
 
-			#import "TalkingData.h"
-			- (BOOL)application:(UIApplication *)application
-			didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
+		#import "TalkingData.h"
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			[TalkingData sessionStarted:@"A1B2C3E4D5F7C0"
 			withChannelId:@"BAIDU"];
 			......
-			}
+		}
 
 ### 接口说明：（Javascript 文件中的 TalkingData 对象）
 
