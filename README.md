@@ -109,8 +109,7 @@
 
 		#import "TalkingData.h"
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-			[TalkingData sessionStarted:@"A1B2C3E4D5F7C0"
-			withChannelId:@"BAIDU"];
+			[TalkingData sessionStarted:@"A1B2C3E4D5F7C0" withChannelId:@"BAIDU"];
 			......
 		}
 
